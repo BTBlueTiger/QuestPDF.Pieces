@@ -28,10 +28,10 @@ jobs:
         run: dotnet restore
 
       - name: Build the project
-        run: dotnet build --configuration Release
+        run: dotnet build ./src/QuestPDF.Pieces.csproj --configuration Release
 
       - name: Pack the NuGet package
-        run: dotnet pack --configuration Release --no-build
+        run: dotnet pack ./src/QuestPDF.Pieces.csproj --configuration Release --no-build
 
       - name: Publish to NuGet
         env:
