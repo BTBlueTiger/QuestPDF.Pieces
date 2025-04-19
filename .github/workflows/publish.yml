@@ -1,9 +1,9 @@
 name: Publish to NuGet
 
 on:
-  push:
-    branches:
-      - main  # Change this to your default branch if it's not 'main'
+  release:
+    types: [published]  # Trigger only when a new release is published
+  workflow_dispatch:  # Add this to allow manual triggering
 
 jobs:
   build:
@@ -32,3 +32,6 @@ jobs:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}  # Store your API key in GitHub Secrets
         run: |
           dotnet nuget push bin/Release/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+
+
+          
