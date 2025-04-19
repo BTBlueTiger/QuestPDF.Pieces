@@ -4,7 +4,7 @@ namespace QuestPDF.Pieces.Document
     using System;
     using QuestPDF.Pieces.Sections;
     using System.Collections.Generic;
-    using QuestPDF.Drawing;
+    using QuestPDF.Infrastructure;
 
     public abstract class IDocumentBuilder<T>
     {
