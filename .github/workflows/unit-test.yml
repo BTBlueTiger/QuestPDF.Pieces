@@ -1,9 +1,10 @@
 name: CI Workflow
 
 on:
-  push:
+  pull_request:
     branches:
-      - feature/*  # Trigger on push to branches that start with 'feature/'
+      - main  # Trigger on push to branches that start with 'feature/'
+      - dev
 
 jobs:
   build:
