@@ -10,7 +10,7 @@
 
 **QuestPDF.Pieces** is a robust and flexible framework built on top of [QuestPDF](https://www.questpdf.com/). It simplifies PDF generation by introducing reusable "pieces" (components) that encapsulate layout logic, enabling developers to create clean, maintainable, and modular code.
 
-Whether you're generating invoices, reports, proposals, or forms, this library provides a structured and intuitive way to design your documents.
+Whether you're generating invoices, reports, proposals, forms, or other documents, this library provides a structured and intuitive way to design your documents.
 
 ---
 
@@ -60,6 +60,50 @@ document.GeneratePdf("output.pdf");
 ```
 
 This example demonstrates how to create a document with a header, body, and footer using reusable components like `TextLine` and `Seperator`.
+
+---
+
+## 🛠️ Extensibility
+
+### Creating Custom Components
+
+You can easily create new components by extending the `BasePiece` class within the `QuestPDF.Pieces.Components` namespace. For example:
+
+```csharp
+using QuestPDF.Pieces.Components;
+using QuestPDF.Fluent;
+
+public class CustomTextLine(string text, int size = 12) : BasePiece
+{
+    public override string ElementName { get; } = "CustomTextLine";
+
+    public override void Compose(ColumnDescriptor x)
+    {
+        x.Item().Text(text).FontSize(size).Bold();
+    }
+}
+```
+
+This allows you to define custom behavior and styling for your components.
+
+### Overriding Sections
+
+You can override existing sections like `HeaderSection`, `BodySection`, or `FooterSection` to provide default behavior or styling. For example:
+
+```csharp
+using QuestPDF.Pieces.Sections;
+using QuestPDF.Pieces.Components;
+
+public class DefaultHeaderSection : HeaderSection
+{
+    public DefaultHeaderSection()
+    {
+        AddComponent(new TextLine("Default Header", size: 18));
+    }
+}
+```
+
+This enables you to standardize headers, footers, or other sections across your documents.
 
 ---
 
