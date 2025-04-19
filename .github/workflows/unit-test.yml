@@ -18,14 +18,11 @@ jobs:
       with:
         dotnet-version: '9.0'  # Use the version of .NET you're working with
 
-    - name: Go to Tests
-      run: cd tests  # Navigate to the Tests directory
-
-    - name: Restore dependencies
-      run: dotnet restore  # Restores the project dependencies
+    - name: Navigate to project directory
+      run: cd tests && ls  # Navigate to the Tests directory and list its contents for debugging
 
     - name: Build the project
-      run: dotnet build 
+      run: dotnet build  # Builds the project
 
     - name: Run unit tests
       run: dotnet test --no-build --verbosity normal  # Runs the unit tests (no need to rebuild)
