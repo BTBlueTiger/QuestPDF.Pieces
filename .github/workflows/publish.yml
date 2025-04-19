@@ -1,7 +1,9 @@
 name: Publish to NuGet
 
 on:
-    workflow_dispatch:  # Allows manual triggering of the workflow
+  push:
+    branches:
+      - main  # Change this to your default branch if it's not 'main'
 
 jobs:
   build:
