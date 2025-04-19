@@ -6,7 +6,7 @@
 
     <!-- Package Info -->
     <PackageId>QuestPDF.Pieces</PackageId>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <Authors>BTBlueTiger</Authors>
     <Company>BTBlueTiger</Company>
     <Product>QuestPDF.Pieces</Product>
@@ -15,7 +15,7 @@
     <RepositoryUrl>https://github.com/BTBlueTiger/QuestPDF.Pieces</RepositoryUrl>
     <PackageProjectUrl>https://github.com/BTBlueTiger/QuestPDF.Pieces</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <!-- Enable NuGet packaging -->
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
@@ -25,6 +25,7 @@
   <ItemGroup>
     <!-- Reference QuestPDF -->
     <PackageReference Include="QuestPDF" Version="2024.10.2" />
+    <None Include="README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>
