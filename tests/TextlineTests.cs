@@ -17,6 +17,9 @@ namespace QuestPDF.Pieces.Tests.Components
             // Act
             textLine.Compose(columnDescriptorMock.Object);
 
+            // Assert
+            columnDescriptorMock.Verify(x => x.Text("Test Text"), Times.Once);
+            columnDescriptorMock.Verify(x => x.FontSize(12), Times.Once);
         }
     }
 }
