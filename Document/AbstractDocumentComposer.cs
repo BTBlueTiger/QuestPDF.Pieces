@@ -1,11 +1,14 @@
 namespace QuestPDF.Pieces.Document
 {
     using QuestPDF.Fluent;
-    using QuestPDF.Infrastructure;
+    using System;
     using QuestPDF.Pieces.Sections;
-    public abstract class IDocumentBuilder<T>
+    using System.Collections.Generic;
+    using QuestPDF.Infrastructure;
+
+    public abstract class AbstractDocumentComposer<T>
     {
-        protected List<ISection> _sections = [];
+        protected List<AbstractSection> _sections = [];
         protected PageDescriptor _content = new();
         public delegate void BuildDelegate(PageDescriptor x);
 
@@ -19,37 +22,37 @@ namespace QuestPDF.Pieces.Document
                 Keywords = "QuestPDF, PDF, Document, Pieces",
             };
 
-        public IDocumentBuilder<T> AddComponent(ISection section)
+        public AbstractDocumentComposer<T> AddComponent(AbstractSection section)
         {
             Console.WriteLine($"Adding section: {section.ElementName}");
             _sections.Add(section);
             return this;
         }
 
-        public IDocumentBuilder<T> AddTitle(string title)
+        public AbstractDocumentComposer<T> AddTitle(string title)
         {
             _documentMetadata.Title = title;
             return this;
         }
 
-        public IDocumentBuilder<T> AddAuthor(string author)
+        public AbstractDocumentComposer<T> AddAuthor(string author)
         {
             _documentMetadata.Author = author;
             return this;
         }
 
-        public IDocumentBuilder<T> AddSubject(string subject)
+        public AbstractDocumentComposer<T> AddSubject(string subject)
         {
             _documentMetadata.Subject = subject;
             return this;
         }
 
-        public IDocumentBuilder<T> AddKeywords(string keywords)
+        public AbstractDocumentComposer<T> AddKeywords(string keywords)
         {
             _documentMetadata.Keywords = keywords;
             return this;
         }
 
-        public abstract T Build();
+        public abstract T Compose();
     }
 }

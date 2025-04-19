@@ -1,5 +1,6 @@
 namespace QuestPDF.Pieces.Components
 {
+    using System;
     using System.Collections.ObjectModel;
     using QuestPDF.Fluent;
     using QuestPDF.Pieces;
@@ -7,7 +8,7 @@ namespace QuestPDF.Pieces.Components
     /// <summary>
     /// Interface for PDF components.
     /// </summary>
-    public abstract class PieceComponent : Pieces
+    public abstract class BasePiece : AbstractPiece
     {
         /// <summary>
         /// Components are not implementing this by default
@@ -19,9 +20,9 @@ namespace QuestPDF.Pieces.Components
         }
     }
 
-    public abstract class IPDFComponentontainer(Collection<PieceComponent> pieces) : Pieces
+    public abstract class PieceContainer(Collection<BasePiece> pieces) : AbstractPiece
     {
-        public readonly Collection<PieceComponent> _pieces = pieces;
+        public readonly Collection<BasePiece> _pieces = pieces;
 
         /// <summary>
         /// ComponentContainer are not implementing this by default

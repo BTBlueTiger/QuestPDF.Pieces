@@ -1,8 +1,14 @@
 ﻿namespace QuestPDF.Pieces
 {
+    using System;
+    using QuestPDF;
     using QuestPDF.Fluent;
 
-    public abstract class Pieces
+    /// <summary>
+    /// Abstract class representing a piece of a PDF document.
+    /// Base class of all pieces in this Lightweight Extension.
+    /// </summary>
+    public abstract class AbstractPiece
     {
         public abstract string ElementName { get; }
 

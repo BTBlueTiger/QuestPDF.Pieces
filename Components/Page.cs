@@ -2,7 +2,7 @@ namespace QuestPDF.Pieces.Components
 {
     using System.Collections.ObjectModel;
     using QuestPDF.Fluent;
-    public class Page(Collection<PieceComponent> pieces) : IPDFComponentontainer(pieces)
+    public class Page(Collection<BasePiece> pieces) : PieceContainer(pieces)
     {
         public override string ElementName { get; } = "Page";
 

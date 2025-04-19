@@ -1,10 +1,11 @@
 namespace QuestPDF.Pieces.Document
-{
+{   using QuestPDF;
+    using System;
     using QuestPDF.Fluent;
 
-    public class DocumentBuilder : IDocumentBuilder<Document>
+    public class DocumentComposer : AbstractDocumentComposer<Document>
     {
-        public override Document Build()
+        public override Document Compose()
         {
             Console.WriteLine("Building Document...");
             Console.WriteLine($"Document Metadata: {_documentMetadata}");

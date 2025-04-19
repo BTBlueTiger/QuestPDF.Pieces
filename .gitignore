@@ -56,3 +56,4 @@ desktop.ini
 # Optional: ignore local secrets or credentials
 secrets.json
 appsettings.Development.json
+.env
