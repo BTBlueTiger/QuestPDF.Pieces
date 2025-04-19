@@ -1,15 +1,25 @@
-# QuestPDF.Pieces
+# 📄 QuestPDF.Pieces
 
-A modular and extensible PDF document generator built on top of [QuestPDF](https://www.questpdf.com/). 
+**Composable, reusable building blocks for beautiful PDF documents using [QuestPDF](https://www.questpdf.com/).**
 
-## Features
+> Build dynamic PDFs like you build UI — with components.
 
-- Component-based PDF layout
-- Easy integration with QuestPDF
-- Clean, extensible interfaces
+---
 
-## License
+## 🚀 Overview
 
-This project is open-source under the MIT License.
+**QuestPDF.Pieces** is a lightweight, flexible framework built on top of [QuestPDF](https://www.questpdf.com/), designed to streamline PDF generation by introducing reusable "pieces" (components) that encapsulate layout logic and promote clean, modular code.
 
-Note: This package depends on QuestPDF, which uses the [BSL-1.1 license](https://www.questpdf.com/license.html) for commercial use.
+Whether you're generating invoices, reports, proposals, or forms, this library helps you structure your documents using a familiar and maintainable approach.
+
+---
+
+## ✨ Features
+
+- ✅ Abstract base classes for structured PDF sections and components
+- 🔄 Reusable and composable PDF pieces (e.g., headers, footers, tables, etc.)
+- 🧩 Works seamlessly with QuestPDF’s fluent API
+- 🛠️ Clean architecture for building PDF UIs
+- 💡 Developer-friendly, extensible, and easy to test
+
+---
