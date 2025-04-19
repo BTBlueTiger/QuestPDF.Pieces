@@ -1,5 +1,5 @@
 namespace QuestPDF.Pieces.Document
-{
+{   using QuestPDF;
     using System;
     using QuestPDF.Fluent;
 

@@ -1,6 +1,7 @@
 ﻿namespace QuestPDF.Pieces
 {
     using System;
+    using QuestPDF;
     using QuestPDF.Fluent;
 
     public abstract class Pieces
