@@ -19,7 +19,7 @@ jobs:
         dotnet-version: '9.0'  # Use the version of .NET you're working with
 
     - name: Go to Tests
-      run: cd Tests  # Navigate to the Tests directory
+      run: cd tests  # Navigate to the Tests directory
 
     - name: Restore dependencies
       run: dotnet restore  # Restores the project dependencies
