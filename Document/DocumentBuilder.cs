@@ -1,5 +1,6 @@
 namespace QuestPDF.Pieces.Document
 {
+    using System;
     using QuestPDF.Fluent;
 
     public class DocumentBuilder : IDocumentBuilder<Document>

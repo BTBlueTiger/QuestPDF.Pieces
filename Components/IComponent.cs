@@ -1,5 +1,6 @@
 namespace QuestPDF.Pieces.Components
 {
+    using System;
     using System.Collections.ObjectModel;
     using QuestPDF.Fluent;
     using QuestPDF.Pieces;

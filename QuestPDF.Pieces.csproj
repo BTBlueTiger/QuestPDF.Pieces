@@ -1,13 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <!-- Target Framework -->
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+
+    <!-- Package Info -->
+    <PackageId>QuestPDF.Framework</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>BTBlueTiger</Authors>
+    <Company>BTBlueTiger</Company>
+    <Product>QuestPDF.Pieces</Product>
+    <Description>A composable framework built on top of QuestPDF to simplify reusable PDF components.</Description>
+    <PackageTags>questpdf;pdf;dotnet;document;generation;components</PackageTags>
+    <RepositoryUrl>https://github.com/BTBlueTiger/QuestPDF.Pieces</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/BTBlueTiger/QuestPDF.Pieces</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <!-- Enable NuGet packaging -->
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="QuestPDF" Version="2025.4.0" />
+    <!-- Reference QuestPDF -->
+    <PackageReference Include="QuestPDF" Version="2023.3.0" />
   </ItemGroup>
 
 </Project>

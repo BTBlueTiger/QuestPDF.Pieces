@@ -1,8 +1,11 @@
 namespace QuestPDF.Pieces.Document
 {
     using QuestPDF.Fluent;
-    using QuestPDF.Infrastructure;
+    using System;
     using QuestPDF.Pieces.Sections;
+    using System.Collections.Generic;
+    using QuestPDF.Drawing;
+
     public abstract class IDocumentBuilder<T>
     {
         protected List<ISection> _sections = [];
