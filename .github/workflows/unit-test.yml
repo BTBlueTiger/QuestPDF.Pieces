@@ -1,6 +1,7 @@
 name: CI Workflow
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - feature/*  # Trigger on push to branches that start with 'feature/'
