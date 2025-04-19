@@ -1,7 +1,7 @@
 namespace QuestPDF.Pieces.Sections
 {
     using QuestPDF.Fluent;
-    public class AbstractBodySection : AbstractSection
+    public class BodySection : AbstractSection
     {
         public override string ElementName { get; } = "BodySection";
         public override Section_t SectionType { get; } = Section_t.Body;
