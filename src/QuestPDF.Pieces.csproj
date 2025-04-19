@@ -6,7 +6,7 @@
 
     <!-- Package Info -->
     <PackageId>QuestPDF.Pieces</PackageId>
-    <Version>1.0.7</Version>
+    <Version>1.0.8</Version>
     <Authors>BTBlueTiger</Authors>
     <Company>BTBlueTiger</Company>
     <Product>QuestPDF.Pieces</Product>
@@ -19,7 +19,8 @@
     <!-- Enable NuGet packaging -->
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
-    
+    <!-- Disable auto-generation of assembly attributes -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

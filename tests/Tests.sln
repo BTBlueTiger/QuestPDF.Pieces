@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuestPDF.Pieces", "QuestPDF.Pieces.csproj", "{A83BB5ED-BF1B-08BC-B6B1-FCE6C28EE2EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests.csproj", "{2129A3AB-DC3C-F26A-5D24-037F9D5937E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,15 +10,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A83BB5ED-BF1B-08BC-B6B1-FCE6C28EE2EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A83BB5ED-BF1B-08BC-B6B1-FCE6C28EE2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A83BB5ED-BF1B-08BC-B6B1-FCE6C28EE2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A83BB5ED-BF1B-08BC-B6B1-FCE6C28EE2EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2129A3AB-DC3C-F26A-5D24-037F9D5937E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2129A3AB-DC3C-F26A-5D24-037F9D5937E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2129A3AB-DC3C-F26A-5D24-037F9D5937E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2129A3AB-DC3C-F26A-5D24-037F9D5937E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D652C60B-7E4A-4603-9EB2-89575EE6D98E}
+		SolutionGuid = {2C091B3C-BE18-4524-A236-573FAFE165B0}
 	EndGlobalSection
 EndGlobal

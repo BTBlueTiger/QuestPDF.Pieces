@@ -1,0 +1,25 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - feature/*  # Trigger on push to branches that start with 'feature/'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # You can change this to 'windows-latest' or 'macos-latest' if needed
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3  # Checks out the code from the branch
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0'  # Use the version of .NET you're working with
+
+    - name: Build the project
+      run: dotnet build ./tests/Tests.csproj  # Full path to the test project
+
+    - name: Run unit tests
+      run: dotnet test ./tests/Tests.csproj --no-build --verbosity normal  # Full path to the test project

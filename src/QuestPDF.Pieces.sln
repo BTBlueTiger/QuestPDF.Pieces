@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuestPDF.Pieces", "QuestPDF.Pieces.csproj", "{3C1B06C4-358B-4E42-965C-68EABB0FFA52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\Tests\Tests.csproj", "{4FFE1B1F-1621-4993-B783-3863D1D6C5C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D652C60B-7E4A-4603-9EB2-89575EE6D98E}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C1B06C4-358B-4E42-965C-68EABB0FFA52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1B06C4-358B-4E42-965C-68EABB0FFA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1B06C4-358B-4E42-965C-68EABB0FFA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1B06C4-358B-4E42-965C-68EABB0FFA52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FFE1B1F-1621-4993-B783-3863D1D6C5C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FFE1B1F-1621-4993-B783-3863D1D6C5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FFE1B1F-1621-4993-B783-3863D1D6C5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FFE1B1F-1621-4993-B783-3863D1D6C5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
