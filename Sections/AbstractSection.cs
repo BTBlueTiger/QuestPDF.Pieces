@@ -6,7 +6,7 @@ namespace QuestPDF.Pieces.Sections
 
     public abstract class AbstractSection : AbstractPiece
     {
-        private readonly List<AbstractPiece> _components = [];
+        protected readonly List<AbstractPiece> _pieces = [];
 
         /// <summary>
         /// The section type of the current section.
@@ -22,26 +22,9 @@ namespace QuestPDF.Pieces.Sections
             LogNotImplementedForThisDescriptor(x);
         }
 
-            /// <summary>
-        /// Composes the body section using the provided <see cref="PageDescriptor"/>.
-        /// </summary>
-        public override void Compose(PageDescriptor x)
-        {
-            base.Compose(x);
-
-            x.Content()
-                .Column(column =>
-                {
-                    foreach (var component in _components)
-                    {
-                        component.Compose(column);
-                    }
-                });
-        }
-
         public AbstractSection AddComponent(AbstractPiece component)
         {
-            _components.Add(component);
+            _pieces.Add(component);
             return this;
         }
     }
