@@ -2,7 +2,7 @@ namespace QuestPDF.Pieces.Components
 {
     using QuestPDF.Fluent;
 
-    public class Seperator(int? size = null) : PieceComponent
+    public class Seperator(int? size = null) : BasePiece
     {
         public override string ElementName { get; } = "Seperator";
 
