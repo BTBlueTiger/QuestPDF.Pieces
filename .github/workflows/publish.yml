@@ -1,0 +1,32 @@
+name: Publish to NuGet
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # You can also choose windows-latest or macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0'  # Adjust to match your target framework (e.g., '6.0' or '7.0')
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build the project
+        run: dotnet build --configuration Release
+
+      - name: Pack the NuGet package
+        run: dotnet pack --configuration Release --no-build
+
+      - name: Publish to NuGet
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}  # Store your API key in GitHub Secrets
+        run: |
+          dotnet nuget push bin/Release/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
