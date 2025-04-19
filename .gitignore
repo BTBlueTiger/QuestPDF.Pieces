@@ -1,0 +1,58 @@
+# Build artifacts
+bin/
+obj/
+*.dll
+*.exe
+*.app
+*.pdb
+*.cache
+*.log
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio & VS Code settings
+.vscode/
+.vs/
+*.code-workspace
+
+# NuGet stuff
+*.nupkg
+*.snupkg
+*.nuspec
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Dotnet CLI artifacts
+*.deps.json
+*.runtimeconfig.json
+
+# QuestPDF previewer temp folders
+QuestPDF.Preview/
+__preview/
+
+# Rider IDE
+.idea/
+
+# Others
+TestResults/
+*.db
+*.sqlite
+*.bak
+*.swp
+*.sln.cache
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Optional: ignore local secrets or credentials
+secrets.json
+appsettings.Development.json
