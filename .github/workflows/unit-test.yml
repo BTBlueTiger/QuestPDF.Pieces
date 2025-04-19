@@ -1,0 +1,31 @@
+name: CI Workflow
+
+on:
+  pull_request:
+    branches:
+      - feature/*  # Trigger on pull requests to branches that start with 'feature/'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # You can change this to 'windows-latest' or 'macos-latest' if needed
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3  # Checks out the code from the PR branch
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '9.0'  # Use the version of .NET you're working with
+
+    - name: Go to Tests
+      run: cd Tests  # Navigate to the Tests directory
+
+    - name: Restore dependencies
+      run: dotnet restore  # Restores the project dependencies
+
+    - name: Build the project
+      run: dotnet build 
+
+    - name: Run unit tests
+      run: dotnet test --no-build --verbosity normal  # Runs the unit tests (no need to rebuild)
