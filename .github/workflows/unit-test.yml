@@ -1,7 +1,7 @@
 name: CI Workflow
 
 on:
-  pull_request:
+  push:
     branches:
       - feature/*  # Trigger on pull requests to branches that start with 'feature/'
 
