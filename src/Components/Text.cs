@@ -3,7 +3,7 @@
 namespace QuestPDF.Pieces.Components
 {
     using QuestPDF.Fluent;
-    using QuestPDF.Pieces.Constants;
+    using QuestPDF.Pieces.Theme;
 
     namespace Text
     {
@@ -18,11 +18,12 @@ namespace QuestPDF.Pieces.Components
             public override string ElementName { get; } = "TextLine.Standard";
             protected virtual string Text { get; } = text ?? "";
             protected virtual string BackgroundColor { get; } =
-                backgroundColor ?? Constants.BackgroundColor;
-            protected virtual int Size { get; } = size ?? Constants.DefaultFontSize;
-            protected virtual string FontColor { get; } = fontColor ?? Constants.PrimaryFontColor;
+                backgroundColor ?? ThemeController.BackgroundColor;
+            protected virtual int Size { get; } = size ?? ThemeController.DefaultFontSize;
+            protected virtual string FontColor { get; } =
+                fontColor ?? ThemeController.PrimaryFontColor;
             protected virtual string FontFamily { get; } =
-                fontFamily ?? Constants.PrimaryFontFamily;
+                fontFamily ?? ThemeController.PrimaryFontFamily;
 
             public override void Compose(ColumnDescriptor x)
             {
@@ -53,7 +54,8 @@ namespace QuestPDF.Pieces.Components
         {
             public override string ElementName { get; } = "TextLine.Light";
 
-            protected override string FontFamily => Constants.SecondaryFontFamily;
+            protected override string FontFamily => ThemeController.SecondaryFontFamily;
+            protected override string FontColor => ThemeController.SecondaryFontColor;
 
             public override void Compose(ColumnDescriptor x)
             {
@@ -80,9 +82,10 @@ namespace QuestPDF.Pieces.Components
         ) : Standard("", size, backgroundColor, fontColor, fontFamily)
         {
             public override string ElementName { get; } = "TextLine.DescriptionBlock";
-            protected string IconSrc { get; } = iconSrc ?? Constants.GetDefaultIconSrc();
+            protected string IconSrc { get; } = iconSrc ?? ThemeController.GetDefaultIconSrc();
 
-            protected override string FontFamily => Constants.SecondaryFontFamily;
+            protected override string FontFamily => ThemeController.SecondaryFontFamily;
+            protected override string FontColor => ThemeController.SecondaryFontColor;
 
             public override void Compose(ColumnDescriptor x)
             {
@@ -99,7 +102,8 @@ namespace QuestPDF.Pieces.Components
                             .Text(text)
                             .FontSize(Size)
                             .Italic()
-                            .FontColor(Constants.DescriptionFontColor);
+                            .FontColor(FontColor)
+                            .FontFamily(FontFamily);
                     });
             }
         }

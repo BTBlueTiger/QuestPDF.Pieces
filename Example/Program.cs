@@ -1,4 +1,5 @@
 ﻿// filepath: ExampleUsage.cs
+using System.Drawing;
 using QuestPDF.Companion;
 using QuestPDF.Infrastructure;
 using QuestPDF.Pieces;
@@ -11,6 +12,16 @@ using Text = QuestPDF.Pieces.Components.Text;
 QuestPDF.Settings.License = LicenseType.Community;
 
 var documentComposer = new DocumentComposer();
+
+var configurator = new QuestPDF.Pieces.Theme.ThemeController.Configurator();
+configurator
+    .SetVariable("DefaultFontSize", 12)
+    .SetVariable("DefaultFontSizeHeadline", 16)
+    .SetVariable("PrimaryFontColor", "#000000")
+    .SetVariable("SecondaryFontColor", "#1E3F66")
+    .SetVariable("BackgroundColor", "#BCD2E8")
+    .SetVariable("PrimaryFontFamily", "Arial")
+    .SetVariable("SecondaryFontFamily", "Arial");
 
 // Add a header section
 var header = new HeaderSection();

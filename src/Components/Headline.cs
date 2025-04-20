@@ -4,7 +4,7 @@ namespace QuestPDF.Pieces.Components
     using System.Collections.Generic;
     using System.Drawing;
     using QuestPDF.Fluent;
-    using QuestPDF.Pieces.Constants;
+    using QuestPDF.Pieces.Theme;
 
     namespace Headline
     {
@@ -17,7 +17,7 @@ namespace QuestPDF.Pieces.Components
         ) : Text.Standard(text: "", size, backgroundColor, fontColor, fontFamily)
         {
             public override string ElementName { get; } = "Headline.Standard";
-            protected override int Size { get; } = Constants.DefaultFontSizeHeadline;
+            protected override int Size { get; } = ThemeController.DefaultFontSizeHeadline;
 
             protected readonly List<string> items = items;
 
@@ -53,7 +53,7 @@ namespace QuestPDF.Pieces.Components
         {
             public override string ElementName { get; } = "Headline.Light";
 
-            protected override string FontFamily => Constants.SecondaryFontFamily;
+            protected override string FontFamily => ThemeController.SecondaryFontFamily;
 
             public override void Compose(ColumnDescriptor x)
             {
@@ -92,7 +92,7 @@ namespace QuestPDF.Pieces.Components
             protected string left = left;
             protected string right = right;
 
-            protected override string FontFamily => Constants.SecondaryFontFamily;
+            protected override string FontFamily => ThemeController.SecondaryFontFamily;
 
             public override void Compose(ColumnDescriptor x)
             {
@@ -106,12 +106,12 @@ namespace QuestPDF.Pieces.Components
                         row.RelativeItem()
                             .Text(left)
                             .FontSize(Size)
-                            .FontColor(Constants.PrimaryFontContrastColor)
+                            .FontColor(FontColor)
                             .AlignLeft();
                         row.RelativeItem()
                             .Text(right)
                             .FontSize(Size)
-                            .FontColor(Constants.PrimaryFontContrastColor)
+                            .FontColor(FontColor)
                             .AlignRight();
                     });
             }
@@ -133,7 +133,7 @@ namespace QuestPDF.Pieces.Components
             protected string right = right;
             protected string middle = middle;
 
-            protected override string FontFamily => Constants.SecondaryFontFamily;
+            protected override string FontFamily => ThemeController.SecondaryFontFamily;
 
             public override void Compose(ColumnDescriptor x)
             {
@@ -147,17 +147,17 @@ namespace QuestPDF.Pieces.Components
                         row.RelativeItem()
                             .Text(left)
                             .FontSize(Size)
-                            .FontColor(Constants.PrimaryFontContrastColor)
+                            .FontColor(FontColor)
                             .AlignLeft();
                         row.RelativeItem()
                             .Text(middle)
                             .FontSize(Size)
-                            .FontColor(Constants.PrimaryFontContrastColor)
+                            .FontColor(FontColor)
                             .AlignCenter();
                         row.RelativeItem()
                             .Text(right)
                             .FontSize(Size)
-                            .FontColor(Constants.PrimaryFontContrastColor)
+                            .FontColor(FontColor)
                             .AlignRight();
                     });
             }
