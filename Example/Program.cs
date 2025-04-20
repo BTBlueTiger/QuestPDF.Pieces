@@ -1,6 +1,7 @@
 ﻿// filepath: ExampleUsage.cs
 using System.Drawing;
 using QuestPDF.Companion;
+using QuestPDF.Fluent;
 using QuestPDF.Infrastructure;
 using QuestPDF.Pieces;
 using QuestPDF.Pieces.Components;
@@ -55,4 +56,6 @@ documentComposer.AddComponent(footer);
 
 // Generate the PDF document
 var document = documentComposer.Compose();
-document.ShowInCompanion();
+// document.ShowInCompanion();
+document.GeneratePdf("./GeneratedDocument.pdf");
+

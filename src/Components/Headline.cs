@@ -193,36 +193,5 @@ namespace QuestPDF.Pieces.Components
                     });
             }
         }
-
-        public class Justified(
-            List<string> items,
-            int? size = null,
-            string backgroundColor = null,
-            string fontColor = null,
-            string fontFamily = null
-        ) : Text.Standard(text: "", size, backgroundColor, fontColor, fontFamily)
-        {
-            public override string ElementName { get; } = "Headline.Justified";
-
-            public override void Compose(ColumnDescriptor x)
-            {
-                base.Compose(x);
-                x.Item()
-                    .Background(BackgroundColor)
-                    .Padding(5)
-                    .Row(row =>
-                    {
-                        foreach (var item in items)
-                        {
-                            row.RelativeItem()
-                                .Text(item)
-                                .FontSize(Size)
-                                .FontColor(FontColor)
-                                .FontFamily(FontFamily)
-                                .AlignJustify();
-                        }
-                    });
-            }
-        }
     }
 }
