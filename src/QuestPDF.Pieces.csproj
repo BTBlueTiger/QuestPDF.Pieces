@@ -27,6 +27,11 @@
     <!-- Reference QuestPDF -->
     <PackageReference Include="QuestPDF" Version="2024.10.2" />
     <None Include="README.md" Pack="true" PackagePath="" />
+    <None Include="res/**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Pack>true</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
