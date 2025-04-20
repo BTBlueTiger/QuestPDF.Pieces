@@ -12,6 +12,17 @@
 
 ---
 
+## 📝 Running the Example
+
+To run the example provided in this README, ensure you have the following prerequisites:
+
+1. Clone this repo
+2. Install the QuestPDF Companion and run it
+3. `cd Example`
+4. `dotnet watch`
+
+---
+
 ## 🚀 Overview
 
 **QuestPDF.Pieces** is a robust and flexible framework built on top of [QuestPDF](https://www.questpdf.com/). It simplifies PDF generation by introducing reusable "pieces" (components) that encapsulate layout logic, enabling developers to create clean, maintainable, and modular code.

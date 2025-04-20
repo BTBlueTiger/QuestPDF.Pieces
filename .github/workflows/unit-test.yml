@@ -6,7 +6,6 @@ on:
       - main  # Trigger on push to branches that start with 'feature/'
       - dev
 
-
 jobs:
   build:
     runs-on: ubuntu-latest  # You can change this to 'windows-latest' or 'macos-latest' if needed
