@@ -13,18 +13,32 @@
 
 ## 📝 Running the Example
 
-To run the example provided in this README, follow these steps:
+To run the example provided in *Pieces* in this README, follow these steps:
 
 1. Clone this repository.
-2. Install the QuestPDF Companion and ensure it is running.
-3. Navigate to the `Example` directory:
+2. Navigate to the `Example` directory:
    ```bash
    cd Example
    ```
-4. Start the application:
+3. Start the application:
    ```bash
-   dotnet watch
+   dotnet run 
    ```
+
+If you only want the PDF in the Companion from QuestPDF:
+Install the QuestPDF Companion and ensure it is running. 
+Go to Example and Change change the comment out line:
+
+```c#
+// document.ShowInCompanion();
+document.GeneratePdf("./GeneratedDocument.pdf");
+```
+
+to 
+```c#
+document.ShowInCompanion();
+// document.GeneratePdf("./GeneratedDocument.pdf");
+```
 
 ---
 
@@ -42,8 +56,7 @@ Whether you're generating invoices, reports, proposals, forms, or other document
 - **Reusable Components**: Build headers, footers, tables, and other elements with ease.
 - **Seamless Integration**: Works effortlessly with QuestPDF’s fluent API.
 - **Clean Architecture**: Promotes modular and maintainable code for PDF generation.
-- **Developer-Friendly**: Extensible, easy to test, and designed for productivity.
-
+- **QuestPDF under the Hood** You can śtill use all Features from QuestPDF, but you can create easy reusable Components
 ---
 
 ## 📖 Basic Usage
@@ -151,9 +164,39 @@ public class CustomTextLine(string text, int size = 12) : BasePiece
 
 This allows you to define custom behavior and styling for your components.
 
+For Container use something like this or add some new Container
+
+```csharp
+namespace QuestPDF.Pieces.Components
+{
+    using System.Collections.ObjectModel;
+    using QuestPDF.Fluent;
+    public class Page(Collection<BasePiece> pieces) : PieceContainer(pieces)
+    {
+        public override string ElementName { get; } = "Page";
+
+        public override void Compose(ColumnDescriptor x)
+        {
+            base.Compose(x);
+            foreach (var piece in _pieces)
+            {
+                piece.Compose(x); // Use 'piece' instead of 'component'
+            }
+            x.Item().PageBreak();
+        }
+
+        public override void Compose(PageDescriptor x)
+        {
+            LogNotImplementedForThisDescriptor(x);
+        }
+    }
+}
+
+```
+
 ### Overriding Sections
 
-You can override existing sections like `HeaderSection`, `BodySection`, or `FooterSection` to provide default behavior or styling. For example:
+You can override existing sections like `HeaderSection`, `BodySection`, or `FooterSection` till now,  to provide default behavior or styling. For example:
 
 ```csharp
 // filepath: DefaultHeaderSection.cs
