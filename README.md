@@ -1,3 +1,9 @@
+## NuGet
+
+[![NuGet](https://img.shields.io/nuget/v/QuestPDF.Pieces.svg)](https://www.nuget.org/packages/QuestPDF.Pieces)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/QuestPDF.Pieces.svg)](https://www.nuget.org/packages/QuestPDF.Pieces)
+
+
 # 📄 QuestPDF.Pieces
 
 **Composable, reusable building blocks for creating professional PDF documents using [QuestPDF](https://www.questpdf.com/).**
