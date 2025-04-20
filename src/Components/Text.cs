@@ -28,7 +28,6 @@ namespace QuestPDF.Pieces.Components
             public override void Compose(ColumnDescriptor x)
             {
                 base.Compose(x);
-                // Generate the standard text element for the PDF document
                 x.Item()
                     .Background(BackgroundColor)
                     .Padding(5)
@@ -60,7 +59,6 @@ namespace QuestPDF.Pieces.Components
             public override void Compose(ColumnDescriptor x)
             {
                 base.Compose(x);
-                // Generate the standard text element for the PDF document
                 x.Item()
                     .Background(BackgroundColor)
                     .Padding(5)
@@ -90,13 +88,11 @@ namespace QuestPDF.Pieces.Components
             public override void Compose(ColumnDescriptor x)
             {
                 base.Compose(x);
-                // Generate the standard text element for the PDF document
                 x.Item()
                     .Row(row =>
                     {
                         row.ConstantItem(20);
                         row.ConstantItem(20).AlignMiddle().Image(IconSrc).FitWidth();
-                        // Text on the right
                         row.ConstantItem(10);
                         row.RelativeItem()
                             .Text(text)
@@ -105,6 +101,72 @@ namespace QuestPDF.Pieces.Components
                             .FontColor(FontColor)
                             .FontFamily(FontFamily);
                     });
+            }
+        }
+
+        public class Bold(
+            string? text = null,
+            int? size = null,
+            string? backgroundColor = null,
+            string? fontColor = null,
+            string? fontFamily = null
+        ) : Standard(text, size, backgroundColor, fontColor, fontFamily)
+        {
+            public override string ElementName { get; } = "TextLine.Bold";
+
+            public override void Compose(ColumnDescriptor x)
+            {
+                base.Compose(x);
+                x.Item()
+                    .Text(Text)
+                    .FontSize(Size)
+                    .FontColor(FontColor)
+                    .FontFamily(FontFamily)
+                    .Bold();
+            }
+        }
+
+        public class Italic(
+            string? text = null,
+            int? size = null,
+            string? backgroundColor = null,
+            string? fontColor = null,
+            string? fontFamily = null
+        ) : Standard(text, size, backgroundColor, fontColor, fontFamily)
+        {
+            public override string ElementName { get; } = "TextLine.Italic";
+
+            public override void Compose(ColumnDescriptor x)
+            {
+                base.Compose(x);
+                x.Item()
+                    .Text(Text)
+                    .FontSize(Size)
+                    .FontColor(FontColor)
+                    .FontFamily(FontFamily)
+                    .Italic();
+            }
+        }
+
+        public class Underline(
+            string? text = null,
+            int? size = null,
+            string? backgroundColor = null,
+            string? fontColor = null,
+            string? fontFamily = null
+        ) : Standard(text, size, backgroundColor, fontColor, fontFamily)
+        {
+            public override string ElementName { get; } = "TextLine.Underline";
+
+            public override void Compose(ColumnDescriptor x)
+            {
+                base.Compose(x);
+                x.Item()
+                    .Text(Text)
+                    .FontSize(Size)
+                    .FontColor(FontColor)
+                    .FontFamily(FontFamily)
+                    .Underline();
             }
         }
     }
