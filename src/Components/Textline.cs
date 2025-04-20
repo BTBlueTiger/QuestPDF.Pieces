@@ -1,22 +1,107 @@
+#nullable enable
+
 namespace QuestPDF.Pieces.Components
 {
     using QuestPDF.Fluent;
-    public class TextLine(string text, int size = 10) : BasePiece
-    {
-        public override string ElementName { get; } = "TextLine";
-        public string Text { get; } = text;
-        public int Size { get; } = size;
+    using QuestPDF.Pieces.Constants;
 
-        public override void Compose(ColumnDescriptor x)
+    namespace Text
+    {
+        public class Standard(
+            string? text = null,
+            int? size = null,
+            string? backgroundColor = null,
+            string? fontColor = null,
+            string? fontFamily = null
+        ) : BasePiece
         {
-            base.Compose(x);
-            // Generate the standard text element for the PDF document
-            x.Item().Text(Text).FontSize(Size).AlignCenter();
+            public override string ElementName { get; } = "TextLine.Standard";
+            protected virtual string Text { get; } = text ?? "";
+            protected virtual string BackgroundColor { get; } =
+                backgroundColor ?? Constants.BackgroundColor;
+            protected virtual int Size { get; } = size ?? Constants.DefaultFontSize;
+            protected virtual string FontColor { get; } = fontColor ?? Constants.PrimaryFontColor;
+            protected virtual string FontFamily { get; } =
+                fontFamily ?? Constants.PrimaryFontFamily;
+
+            public override void Compose(ColumnDescriptor x)
+            {
+                base.Compose(x);
+                // Generate the standard text element for the PDF document
+                x.Item()
+                    .Background(BackgroundColor)
+                    .Padding(5)
+                    .Text(Text)
+                    .FontSize(Size)
+                    .FontColor(FontColor)
+                    .FontFamily(FontFamily);
+            }
+
+            public override void Compose(PageDescriptor x)
+            {
+                LogNotImplementedForThisDescriptor(x);
+            }
         }
 
-        public override void Compose(PageDescriptor x)
+        public class Light(
+            string? text = null,
+            int? size = null,
+            string? backgroundColor = null,
+            string? fontColor = null,
+            string? fontFamily = null
+        ) : Standard(text, size, backgroundColor, fontColor, fontFamily)
         {
-            LogNotImplementedForThisDescriptor(x);
+            public override string ElementName { get; } = "TextLine.Light";
+
+            protected override string FontFamily => Constants.SecondaryFontFamily;
+
+            public override void Compose(ColumnDescriptor x)
+            {
+                base.Compose(x);
+                // Generate the standard text element for the PDF document
+                x.Item()
+                    .Background(BackgroundColor)
+                    .Padding(5)
+                    .Text(Text)
+                    .FontSize(Size)
+                    .FontColor(FontColor)
+                    .FontFamily(FontFamily)
+                    .Light();
+            }
+        }
+
+        public class DescriptionBlock(
+            string? text = null,
+            string? iconSrc = null,
+            int? size = null,
+            string? backgroundColor = null,
+            string? fontColor = null,
+            string? fontFamily = null
+        ) : Standard("", size, backgroundColor, fontColor, fontFamily)
+        {
+            public override string ElementName { get; } = "TextLine.DescriptionBlock";
+            protected string IconSrc { get; } = iconSrc ?? Constants.GetDefaultIconSrc();
+
+            protected override string FontFamily => Constants.SecondaryFontFamily;
+
+            public override void Compose(ColumnDescriptor x)
+            {
+                base.Compose(x);
+                // Generate the standard text element for the PDF document
+                x.Item()
+                    .Row(row =>
+                    {
+                        row.ConstantItem(20);
+                        row.ConstantItem(20).AlignMiddle().Image(IconSrc).FitWidth();
+                        // Text on the right
+                        row.ConstantItem(10);
+                        row.RelativeItem()
+                            .Text(text)
+                            .FontSize(Size)
+                            .Italic()
+                            .FontColor(Constants.DescriptionFontColor);
+                    });
+            }
         }
     }
 }
