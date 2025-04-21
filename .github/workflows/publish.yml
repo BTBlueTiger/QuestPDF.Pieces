@@ -6,6 +6,8 @@ on:
   push:
     tags:
       - "v*"
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -20,7 +22,7 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: "8.0"
+          dotnet-version: '8.0'
 
       - name: Restore dependencies
         run: dotnet restore ./src/QuestPDF.Pieces.csproj
@@ -32,7 +34,8 @@ jobs:
         id: pack
         run: |
           dotnet pack ./src/QuestPDF.Pieces.csproj --configuration Release --no-build
-          echo "package-path=$(find ./src/bin/Release -name '*.nupkg')" >> $GITHUB_OUTPUT
+          PACKAGE_PATH=$(find ./src/bin/Release -name '*.nupkg' -print -quit)
+          echo "package-path=$PACKAGE_PATH" >> $GITHUB_OUTPUT
 
   publish-nuget:
     needs: build
@@ -42,9 +45,10 @@ jobs:
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          dotnet nuget push ${{ needs.build.outputs.package-path }} \
-            --api-key $NUGET_API_KEY \
-            --source https://api.nuget.org/v3/index.json
+          dotnet nuget push "${{ needs.build.outputs.package-path }}" \
+            --api-key "$NUGET_API_KEY" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
 
   publish-github:
     needs: build
@@ -54,6 +58,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          dotnet nuget push ${{ needs.build.outputs.package-path }} \
-            --api-key $GITHUB_TOKEN \
-            --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+          dotnet nuget push "${{ needs.build.outputs.package-path }}" \
+            --api-key "$GITHUB_TOKEN" \
+            --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
+            --skip-duplicate
