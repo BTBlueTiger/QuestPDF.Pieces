@@ -24,7 +24,7 @@ jobs:
           dotnet-version: "8.0" # Adjust to match your target framework (e.g., '6.0' or '7.0')
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore ./src/QuestPDF.Pieces.csproj
 
       - name: Build the project
         run: dotnet build --configuration Release
