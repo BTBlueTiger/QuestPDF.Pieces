@@ -21,6 +21,11 @@
 
     <!-- Disable auto-generation of assembly attributes -->
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+    <PackageReleaseNotes>
+      Version 1.1.0: release of QuestPDF.Pieces version 1.1.0 with more composable PDF components.
+      Version 1.0.0: Introduced the core functionality for composable PDF components.
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
