@@ -12,9 +12,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    outputs:
-      package-path: ${{ steps.pack.outputs.package-path }}
+    runs-on: ubuntu-latest # You can also choose windows-latest or macos-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,43 +21,19 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '8.0'
+          dotnet-version: "8.0" # Adjust to match your target framework (e.g., '6.0' or '7.0')
 
       - name: Restore dependencies
-        run: dotnet restore ./src/QuestPDF.Pieces.csproj
+        run: dotnet restore
 
       - name: Build the project
-        run: dotnet build ./src/QuestPDF.Pieces.csproj --configuration Release
+        run: dotnet build --configuration Release
 
       - name: Pack the NuGet package
-        id: pack
-        run: |
-          dotnet pack ./src/QuestPDF.Pieces.csproj --configuration Release --no-build
-          PACKAGE_PATH=$(find ./src/bin/Release -name '*.nupkg' -print -quit)
-          echo "package-path=$PACKAGE_PATH" >> $GITHUB_OUTPUT
+        run: dotnet pack --configuration Release --no-build
 
-  publish-nuget:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Publish to NuGet.org
+      - name: Publish to NuGet
         env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }} # Store your API key in GitHub Secrets
         run: |
-          dotnet nuget push "${{ needs.build.outputs.package-path }}" \
-            --api-key "$NUGET_API_KEY" \
-            --source https://api.nuget.org/v3/index.json \
-            --skip-duplicate
-
-  publish-github:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Publish to GitHub Packages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          dotnet nuget push "${{ needs.build.outputs.package-path }}" \
-            --api-key "$GITHUB_TOKEN" \
-            --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
-            --skip-duplicate
+          dotnet nuget push bin/Release/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
