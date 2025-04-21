@@ -36,4 +36,4 @@ jobs:
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }} # Store your API key in GitHub Secrets
         run: |
-          dotnet nuget push bin/Release/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+          dotnet nuget push ./src/bin/Release/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
