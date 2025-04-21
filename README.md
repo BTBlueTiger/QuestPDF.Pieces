@@ -7,6 +7,8 @@
 
 **Composable, reusable building blocks for creating professional PDF documents using [QuestPDF](https://www.questpdf.com/).**
 
+> **Note:** This is an unofficial package and is not affiliated with the official QuestPDF library.
+
 > Build dynamic, high-quality PDFs with a modular and component-based approach.
 
 ---
